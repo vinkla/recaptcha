@@ -30,7 +30,7 @@ Require this package, with [Composer](https://getcomposer.org/), in the root dir
 composer require vinkla/recaptcha
 ```
 
-> The next steps are optional. They're only required if you want to use this package with Laravel.
+> **Note:** The next steps are optional. They're only required if you want to use this package with Laravel.
 
 Add the service provider to `config/app.php` in the `providers` array.
 
