@@ -1,5 +1,5 @@
 # CHANGELOG
 
-## 1.0.0 (upcoming)
+## 0.1.0 (released 2016-07-29)
 
-- Initial stable release
+- Initial testing release
