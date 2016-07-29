@@ -77,9 +77,13 @@ class Recaptcha
         $data = json_decode((string) $response->getBody(), true);
 
         if (!isset($data['success']) || !$data['success']) {
-            $error = reset($data['error-codes']);
+            if (isset($data['error-codes'])) {
+                $error = reset($data['error-codes']);
 
-            throw new InvalidRecaptchaException("Invalid recaptcha response error [$error].");
+                throw new InvalidRecaptchaException("Invalid recaptcha response error [$error].");
+            }
+
+            throw new InvalidRecaptchaException("Invalid recaptcha response.");
         }
 
         return (bool) $data['success'];
