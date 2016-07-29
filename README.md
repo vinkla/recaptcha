@@ -1,6 +1,8 @@
 reCAPTCHA
 =========
 
+![recaptcha](https://cloud.githubusercontent.com/assets/499192/17246444/6c1d188a-558c-11e6-8017-009392496433.gif)
+
 A [reCAPTCHA](https://google.com/recaptcha) PHP package with optional [Laravel](https://laravel.com/) support. reCAPTCHA protects your website from spam and abuse while letting real people pass through with ease.
 
 ```php
