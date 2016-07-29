@@ -1,7 +1,7 @@
 reCAPTCHA
 =========
 
-A [reCAPTCHA](https://google.com/recaptcha) PHP package with optional [Laravel](https://laravel.com/) support.
+A [reCAPTCHA](https://google.com/recaptcha) PHP package with optional [Laravel](https://laravel.com/) support. reCAPTCHA protects your website from spam and abuse while letting real people pass through with ease.
 
 ```php
 use Vinkla\Recaptcha\Recaptcha;
