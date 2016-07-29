@@ -41,7 +41,8 @@ class Recaptcha
      *
      * @param string $site
      * @param string $secret
-     * @param \GuzzleHttp\ClientInterface $client
+     *
+     * @return void
      */
     public function __construct($site, $secret)
     {
