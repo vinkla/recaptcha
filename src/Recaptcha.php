@@ -106,7 +106,7 @@ class Recaptcha
             'data-type' => $type,
         ]);
 
-        $attributes = $attributes->map(function ($attribute, $value) {
+        $attributes = $attributes->map(function ($value, $attribute) {
             return sprintf('%s="%s"', $attribute, $value);
         })->implode(' ');
 
