@@ -69,7 +69,7 @@ class Recaptcha
 
         $client = new Client();
 
-        $response = $client->post('https://www.google.com/recaptcha/api/siteverify', [$key => $data]);
+        $response = $client->post('https://google.com/recaptcha/api/siteverify', [$key => $data]);
 
         $data = json_decode((string) $response->getBody(), true);
 
