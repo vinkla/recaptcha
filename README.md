@@ -19,7 +19,7 @@ $recaptcha->validate('g-recaptcha-response');
 [![StyleCI](https://styleci.io/repos/64472238/shield?style=flat)](https://styleci.io/repos/64472238)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/vinkla/php-recaptcha.svg?style=flat)](https://scrutinizer-ci.com/g/vinkla/php-recaptcha/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/vinkla/php-recaptcha.svg?style=flat)](https://scrutinizer-ci.com/g/vinkla/php-recaptcha)
-[![Latest Version](https://img.shields.io/github/release/vinkla/recaptcha.svg?style=flat)](https://github.com/vinkla/recaptcha/releases)
+[![Latest Version](https://img.shields.io/github/release/vinkla/php-recaptcha.svg?style=flat)](https://github.com/vinkla/php-recaptcha/releases)
 [![License](https://img.shields.io/packagist/l/vinkla/recaptcha.svg?style=flat)](https://packagist.org/packages/vinkla/recaptcha)
 
 ## Installation
@@ -56,7 +56,7 @@ This will create a `config/recaptcha.php` file in your app that you can modify t
 
 #### Site Key
 
-The site key is used for the HTML form field. Which you can add to your views with the `recaptcha_field()` helper function.
+The site key is used for the HTML form field. Which you can add to your views with the `recaptcha()->field()` helper function.
 
 #### Secret Key
 

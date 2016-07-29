@@ -17,7 +17,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | The site key is used for the HTML form field. Which you can add to your
-    | views with the recaptcha_field() helper function.
+    | views with the recaptcha()->field() helper function.
     |
     */
 
