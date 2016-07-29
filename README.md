@@ -20,6 +20,49 @@ $recaptcha->validate('g-recaptcha-response');
 [![Latest Version](https://img.shields.io/github/release/vinkla/recaptcha.svg?style=flat)](https://github.com/vinkla/recaptcha/releases)
 [![License](https://img.shields.io/packagist/l/vinkla/recaptcha.svg?style=flat)](https://packagist.org/packages/vinkla/recaptcha)
 
+## Installation
+Require this package, with [Composer](https://getcomposer.org/), in the root directory of your project.
+
+```bash
+composer require vinkla/recaptcha
+```
+
+### Laravel
+
+Add the service provider to `config/app.php` in the `providers` array.
+
+```php
+Vinkla\Recaptcha\RecaptchaServiceProvider::class
+```
+
+If you want you can use the [facade](http://laravel.com/docs/facades). Add the reference in `config/app.php` to your aliases array.
+
+```php
+'Recaptcha' => Vinkla\Recaptcha\Facades\Recaptcha::class
+```
+
+## Configuration
+
+To use reCAPTCHA with Laravel, you'll need to publish all vendor assets:
+
+```bash
+php artisan vendor:publish
+```
+
+This will create a `config/recaptcha.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
+
+#### Site Key
+
+The site key is used for the HTML form field. Which you can add to your views with the `recaptcha_field()` helper function.
+
+#### Secret Key
+
+The secret key is used to communication between your application and Google. Be sure to keep it a secret.
+
+## Usage
+
+Coming soon…
+
 ## License
 
 reCAPTCHA is licensed under [The MIT License (MIT)](LICENSE).
