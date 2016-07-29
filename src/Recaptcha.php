@@ -124,7 +124,7 @@ class Recaptcha
      */
     public function script($lang = 'en')
     {
-        $query = http_build_query(['lang' => $lang]);
+        $query = http_build_query(['hl' => $lang]);
 
         return new HtmlString('<script src="https://google.com/recaptcha/api.js?'.$query.'"></script>');
     }
