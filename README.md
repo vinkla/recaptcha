@@ -3,7 +3,7 @@ reCAPTCHA
 
 ![recaptcha](https://cloud.githubusercontent.com/assets/499192/17246444/6c1d188a-558c-11e6-8017-009392496433.gif)
 
-A [reCAPTCHA](https://google.com/recaptcha) PHP package with optional [Laravel](https://laravel.com/) support. reCAPTCHA protects your website from spam and abuse while letting real people pass through with ease.
+A [reCAPTCHA](https://developers.google.com/recaptcha/intro) PHP package with optional [Laravel](https://laravel.com/) support. reCAPTCHA protects your website from spam and abuse while letting real people pass through with ease.
 
 ```php
 use Vinkla\Recaptcha\Recaptcha;
@@ -23,13 +23,14 @@ $recaptcha->validate('g-recaptcha-response');
 [![License](https://img.shields.io/packagist/l/vinkla/recaptcha.svg?style=flat)](https://packagist.org/packages/vinkla/recaptcha)
 
 ## Installation
+
 Require this package, with [Composer](https://getcomposer.org/), in the root directory of your project.
 
 ```bash
 composer require vinkla/recaptcha
 ```
 
-### Laravel
+> The next steps are optional. They're only required if you want to use this package with Laravel.
 
 Add the service provider to `config/app.php` in the `providers` array.
 
@@ -63,7 +64,57 @@ The secret key is used to communication between your application and Google. Be 
 
 ## Usage
 
-Coming soon…
+First you'll need to add the Google script to your views just before the closing `</head>` tag. You may [select language code](https://developers.google.com/recaptcha/docs/display#config) parameter to the query which is named `hl`. [See a full list of accepted language codes here](https://developers.google.com/recaptcha/docs/language).
+
+```html
+<script src="https://google.com/recaptcha/api.js?hl=en"></script>
+```
+
+Then you'll need to create a new `Vinkla\Recaptcha\Recaptcha` instance.
+
+```php
+use Vinkla\Recaptcha\Recaptcha;
+
+$recaptcha = new Recaptcha('site-key', 'secret-key');
+```
+
+To validate a the response from the form you can use the `validate()` method.
+
+```php
+use Vinkla\Recaptcha\Exceptions\UnverifiedRecaptchaException;
+
+try {
+    $recaptcha->validate('g-recaptcha-response');
+} catch (UnverifiedRecaptchaException $e) {
+    // If the validation fails.
+}
+```
+
+To display the reCAPTCHA field in your form you may add like this.
+
+```html
+<div class="g-recaptcha" data-sitekey="your-site-key"></div>
+```
+
+## Laravel
+
+If you've installed this package in you Laravel application you may also use the facade class.
+
+```php
+use Vinkla\Recaptcha\Facades\Recaptcha;
+
+Recaptcha::validate('g-recaptcha-response');
+```
+
+There is also an helper method to add the reCAPTCHA field in your form without having to add the site key manually.
+
+```php
+{!! recaptcha_field() !!}
+```
+
+## Documentation
+
+If you want to to read more about reCAPTCHA, I'd suggest you [head over to the official documentation](https://developers.google.com/recaptcha/intro).
 
 ## License
 
