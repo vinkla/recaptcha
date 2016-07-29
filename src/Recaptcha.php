@@ -13,9 +13,9 @@ namespace Vinkla\Recaptcha;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use Illuminate\Support\HtmlString;
 use Illuminate\Support\Collection;
-use Vinkla\Recaptcha\Exceptions\UnverifiedRecaptchaException;
+use Illuminate\Support\HtmlString;
+use Vinkla\Recaptcha\Exceptions\InvalidRecaptchaException;
 
 /**
  * This is the recaptcha class.
@@ -53,15 +53,15 @@ class Recaptcha
     }
 
     /**
-     * Verify the response string.
+     * Validate the response string.
      *
      * @param string $response
      *
-     * @throws \Vinkla\Recaptcha\Exceptions\UnverifiedRecaptchaException
+     * @throws \Vinkla\Recaptcha\Exceptions\InvalidRecaptchaException
      *
      * @return bool
      */
-    public function verify($response)
+    public function validate($response)
     {
         $data = [
             'secret' => $this->secret,
@@ -81,7 +81,7 @@ class Recaptcha
                 $message = reset($data['error-codes']);
             }
 
-            throw new UnverifiedRecaptchaException($message ?: 'Unverified reCAPTCHA response.');
+            throw new InvalidRecaptchaException($message ?: 'Unverified reCAPTCHA response.');
         }
 
         return (bool) $data['success'];

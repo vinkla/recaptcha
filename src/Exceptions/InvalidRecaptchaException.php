@@ -14,11 +14,11 @@ namespace Vinkla\Recaptcha\Exceptions;
 use Exception;
 
 /**
- * This is the unverified recaptcha exception class.
+ * This is the invalid recaptcha exception class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class UnverifiedRecaptchaException extends Exception implements RecaptchaExceptionInterface
+class InvalidRecaptchaException extends Exception implements RecaptchaExceptionInterface
 {
     //
 }
