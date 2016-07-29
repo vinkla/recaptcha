@@ -83,7 +83,7 @@ class Recaptcha
                 throw new InvalidRecaptchaException("Invalid recaptcha response error [$error].");
             }
 
-            throw new InvalidRecaptchaException("Invalid recaptcha response.");
+            throw new InvalidRecaptchaException('Invalid recaptcha response.');
         }
 
         return (bool) $data['success'];
