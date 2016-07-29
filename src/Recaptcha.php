@@ -96,7 +96,7 @@ class Recaptcha
      *
      * @return \Illuminate\Support\HtmlString
      */
-    public function field($theme = 'light', $type = 'image', $size = 'normal') {
+    public function field($theme = 'light', $type = 'image', $size = 'normal')
     {
         $attributes = new Collection([
             'class' => 'g-recaptcha',
@@ -109,8 +109,6 @@ class Recaptcha
         $attributes = $attributes->map(function ($attribute, $value) {
             return sprintf('%s="%s"', $attribute, $value);
         })->implode(' ');
-
-        dd($attributes);
 
         return new HtmlString('<div '.$attributes.'></div>');
     }
