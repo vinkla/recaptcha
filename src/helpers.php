@@ -9,22 +9,14 @@
  * file that was distributed with this source code.
  */
 
-use Illuminate\Support\HtmlString;
-
-if (!function_exists('recaptcha_field')) {
+if (!function_exists('recaptcha')) {
     /**
-     * Generate a reCAPTCHA form field.
+     * Get the recaptcha instance.
      *
-     * @param string $theme
-     * @param string $type
-     * @param string $size
-     *
-     * @return \Illuminate\Support\HtmlString
+     * @return \Vinkla\Recaptcha\Recaptcha
      */
-    function recaptcha_field($theme = 'light', $type = 'image', $size = 'normal')
+    function recaptcha()
     {
-        $format = '<div class="g-recaptcha" data-sitekey="%s" data-theme="%s" data-type="%s" data-size="%s"></div>';
-
-        return new HtmlString(sprintf($format, app('recaptcha')->getSite(), $theme, $type, $size));
+        return app('recaptcha');
     }
 }

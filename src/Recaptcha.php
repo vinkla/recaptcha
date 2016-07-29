@@ -13,6 +13,8 @@ namespace Vinkla\Recaptcha;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use Illuminate\Support\HtmlString;
+use Illuminate\Support\Collection;
 use Vinkla\Recaptcha\Exceptions\UnverifiedRecaptchaException;
 
 /**
@@ -86,12 +88,30 @@ class Recaptcha
     }
 
     /**
-     * Get the site key.
+     * Generate the recaptcha form field.
      *
-     * @return string
+     * @param string $theme
+     * @param string $type
+     * @param string $size
+     *
+     * @return \Illuminate\Support\HtmlString
      */
-    public function getSite()
+    public function field($theme = 'light', $type = 'image', $size = 'normal') {
     {
-        return $this->site;
+        $attributes = new Collection([
+            'class' => 'g-recaptcha',
+            'data-sitekey' => $this->site,
+            'data-size' => $size,
+            'data-theme' => $theme,
+            'data-type' => $type,
+        ]);
+
+        $attributes = $attributes->map(function ($attribute, $value) {
+            return sprintf('%s="%s"', $attribute, $value);
+        })->implode(' ');
+
+        dd($attributes);
+
+        return new HtmlString('<div '.$attributes.'></div>');
     }
 }
