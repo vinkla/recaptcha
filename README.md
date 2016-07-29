@@ -64,7 +64,7 @@ The secret key is used to communication between your application and Google. Be 
 
 ## Usage
 
-First you'll need to add the Google script to your views just before the closing `</head>` tag. You may [select language code](https://developers.google.com/recaptcha/docs/display#config) parameter to the query which is named `hl`. [See a full list of accepted language codes here](https://developers.google.com/recaptcha/docs/language).
+First you'll need to add the [Google reCAPTCHA script](https://developers.google.com/recaptcha/docs/display#auto_render) to your view templates just before the closing `</head>` tag.
 
 ```html
 <script src="https://google.com/recaptcha/api.js?hl=en"></script>
