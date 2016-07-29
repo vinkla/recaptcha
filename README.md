@@ -12,7 +12,7 @@ use Vinkla\Recaptcha\Recaptcha;
 $recaptcha = new Recaptcha('site-key', 'secret-key');
 
 // Validate the recaptcha response.
-$recaptcha->validate('g-recaptcha-response');
+$recaptcha->verify('g-recaptcha-response');
 ```
 
 [![Build Status](https://img.shields.io/travis/vinkla/php-recaptcha/master.svg?style=flat)](https://travis-ci.org/vinkla/php-recaptcha)
@@ -84,13 +84,13 @@ use Vinkla\Recaptcha\Recaptcha;
 $recaptcha = new Recaptcha('site-key', 'secret-key');
 ```
 
-To validate a the response from the form you can use the `validate()` method.
+To validate a response from the form you can use the `verify()` method.
 
 ```php
 use Vinkla\Recaptcha\Exceptions\UnverifiedRecaptchaException;
 
 try {
-    $recaptcha->validate('g-recaptcha-response');
+    $recaptcha->verify('g-recaptcha-response');
 } catch (UnverifiedRecaptchaException $e) {
     // If the validation fails.
 }
@@ -103,7 +103,7 @@ If you're using this package with Laravel, you may use the facade class.
 ```php
 use Vinkla\Recaptcha\Facades\Recaptcha;
 
-Recaptcha::validate('g-recaptcha-response');
+Recaptcha::verify('g-recaptcha-response');
 ```
 
 There is a helper method available to add the reCAPTCHA field to your form without having to specify the site key manually.

@@ -50,7 +50,7 @@ class Recaptcha
     }
 
     /**
-     * Validate the response string.
+     * Verify the response string.
      *
      * @param string $response
      *
@@ -58,7 +58,7 @@ class Recaptcha
      *
      * @return bool
      */
-    public function validate($response)
+    public function verify($response)
     {
         $data = [
             'secret' => $this->secret,
