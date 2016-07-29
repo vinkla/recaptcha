@@ -70,7 +70,13 @@ First you'll need to add the Google script to your views just before the closing
 <script src="https://google.com/recaptcha/api.js?hl=en"></script>
 ```
 
-Then you'll need to create a new `Vinkla\Recaptcha\Recaptcha` instance.
+To display the reCAPTCHA field in your form you may add like this.
+
+```html
+<div class="g-recaptcha" data-sitekey="your-site-key"></div>
+```
+
+Then create a new `Vinkla\Recaptcha\Recaptcha` instance.
 
 ```php
 use Vinkla\Recaptcha\Recaptcha;
@@ -90,15 +96,9 @@ try {
 }
 ```
 
-To display the reCAPTCHA field in your form you may add like this.
-
-```html
-<div class="g-recaptcha" data-sitekey="your-site-key"></div>
-```
-
 ## Laravel
 
-If you've installed this package in you Laravel application you may also use the facade class.
+If you're using this package with Laravel, you may use the facade class.
 
 ```php
 use Vinkla\Recaptcha\Facades\Recaptcha;
@@ -106,7 +106,7 @@ use Vinkla\Recaptcha\Facades\Recaptcha;
 Recaptcha::validate('g-recaptcha-response');
 ```
 
-There is also an helper method to add the reCAPTCHA field in your form without having to add the site key manually.
+There is a helper method available to add the reCAPTCHA field to your form without having to specify the site key manually.
 
 ```php
 {!! recaptcha_field() !!}
