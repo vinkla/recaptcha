@@ -110,4 +110,18 @@ class Recaptcha
 
         return new HtmlString('<div '.$attributes.'></div>');
     }
+
+    /**
+     * Generate the recaptcha script tag.
+     *
+     * @param string $lang
+     *
+     * @return \Illuminate\Support\HtmlString
+     */
+    public function script($lang = 'en')
+    {
+        $query = http_build_query(['lang' => $lang]);
+
+        return new HtmlString('<script src="https://google.com/recaptcha/api.js?'.$query.'"></script>');
+    }
 }

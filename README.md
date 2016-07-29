@@ -112,6 +112,12 @@ There is a helper method available to add the reCAPTCHA field to your form witho
 {!! recaptcha()->field() !!}
 ```
 
+This is also available for the script tag.
+
+```php
+{!! recaptcha()->script() !!}
+```
+
 ## Documentation
 
 If you want to to read more about reCAPTCHA, I'd suggest you [head over to the official documentation](https://developers.google.com/recaptcha/intro).
