@@ -112,10 +112,10 @@ There is a helper method available to add the reCAPTCHA field to your form witho
 {!! recaptcha()->field() !!}
 ```
 
-This is also available for the script tag.
+This is also possible with the script tag. You can pass along the optional parameter `$lang` in order to display the field in your language.
 
 ```php
-{!! recaptcha()->script() !!}
+{!! recaptcha()->script('sv') !!}
 ```
 
 ## Documentation
