@@ -130,6 +130,16 @@ class Foo
 }
 ```
 
+You may also validate the reCAPTCHA response with Laravel's validator.
+
+```php
+use Illuminate\Support\Facades\Validator;
+
+Validator::make($request->all(), [
+    'g-recaptcha-response' => 'recaptcha',
+]);
+```
+
 There is a helper method available to add the reCAPTCHA field to your form without having to specify the site key manually.
 
 ```php
