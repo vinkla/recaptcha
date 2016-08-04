@@ -15,6 +15,7 @@ use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Lumen\Application as LumenApplication;
+use Vinkla\Recaptcha\Exceptions\InvalidRecaptchaException;
 
 /**
  * This is the recaptcha service provider class.
@@ -29,10 +30,13 @@ class RecaptchaServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->setupConfig();
+        $this->setupValidationRules();
     }
 
     /**
      * Setup the config.
+     *
+     * @return void
      */
     protected function setupConfig()
     {
@@ -48,7 +52,31 @@ class RecaptchaServiceProvider extends ServiceProvider
     }
 
     /**
+     * Setup the validation rules.
+     *
+     * @return void
+     */
+    protected function setupValidationRules()
+    {
+        $this->app->validator->extend('recaptcha', function ($attribute, $value) {
+            $recaptcha = $this->app['recaptcha'];
+
+            try {
+                return $recaptcha->validate($response);
+            } catch (InvalidRecaptchaException $e) {
+                return false;
+            }
+        });
+
+        $this->app->validator->replacer(function () {
+            return 'Invalid recaptcha response';
+        });
+    }
+
+    /**
      * Register the service provider.
+     *
+     * @return void
      */
     public function register()
     {
@@ -57,6 +85,8 @@ class RecaptchaServiceProvider extends ServiceProvider
 
     /**
      * Register the recaptcha class.
+     *
+     * @return void
      */
     protected function registerRecaptcha()
     {
