@@ -39,17 +39,26 @@ class Recaptcha
     protected $secret;
 
     /**
+     * The guzzle http client.
+     *
+     * @var \GuzzleHttp\ClientInterface
+     */
+    protected $client;
+
+    /**
      * Create a new recaptcha instance.
      *
      * @param string $site
      * @param string $secret
+     * @param \GuzzleHttp\ClientInterface|null $client
      *
      * @return void
      */
-    public function __construct($site, $secret)
+    public function __construct($site, $secret, ClientInterface $client = null)
     {
         $this->site = $site;
         $this->secret = $secret;
+        $this->client = $client ?: new Client();
     }
 
     /**
@@ -70,9 +79,7 @@ class Recaptcha
 
         $key = (version_compare(ClientInterface::VERSION, '6') === 1) ? 'form_params' : 'body';
 
-        $client = new Client();
-
-        $response = $client->post('https://google.com/recaptcha/api/siteverify', [$key => $data]);
+        $response = $this->client->post('https://google.com/recaptcha/api/siteverify', [$key => $data]);
 
         $data = json_decode((string) $response->getBody(), true);
 
