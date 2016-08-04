@@ -49,7 +49,7 @@ If you want you can use the [facade](http://laravel.com/docs/facades). Add the r
 To use reCAPTCHA with Laravel, you'll need to publish all vendor assets:
 
 ```bash
-php artisan vendor:publish
+php artisan vendor:publish --provider="Vinkla\Recaptcha\RecaptchaServiceProvider"
 ```
 
 This will create a `config/recaptcha.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
