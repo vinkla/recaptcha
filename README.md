@@ -11,8 +11,8 @@ use Vinkla\Recaptcha\Recaptcha;
 // Create a new recaptcha instance.
 $recaptcha = new Recaptcha('site-key', 'secret-key');
 
-// Validate the recaptcha response.
-$recaptcha->validate('g-recaptcha-response');
+// Verify the recaptcha response.
+$recaptcha->verify('g-recaptcha-response');
 ```
 
 [![Build Status](https://img.shields.io/travis/vinkla/php-recaptcha/master.svg?style=flat)](https://travis-ci.org/vinkla/php-recaptcha)
@@ -84,14 +84,14 @@ use Vinkla\Recaptcha\Recaptcha;
 $recaptcha = new Recaptcha('site-key', 'secret-key');
 ```
 
-To validate a response from the form you can use the `validate()` method.
+To validate a response from the form you can use the `verify()` method.
 
 ```php
-use Vinkla\Recaptcha\Exceptions\InvalidRecaptchaException;
+use Vinkla\Recaptcha\Exceptions\InvalidResponseException;
 
 try {
-    $recaptcha->validate('g-recaptcha-response');
-} catch (InvalidRecaptchaException $e) {
+    $recaptcha->verify('g-recaptcha-response');
+} catch (InvalidResponseException $e) {
     // If the validation fails.
 }
 ```
@@ -103,7 +103,7 @@ If you're using this package with Laravel, you may use the facade class.
 ```php
 use Vinkla\Recaptcha\Facades\Recaptcha;
 
-Recaptcha::validate('g-recaptcha-response');
+Recaptcha::verify('g-recaptcha-response');
 ```
 
 If you prefer to use dependency injection over facades like me, then you can inject the manager:
@@ -123,7 +123,7 @@ class Foo
 
     public function bar(Request $request)
     {
-        $this->recaptcha->validate(
+        $this->recaptcha->verify(
             $request->get('g-recaptcha-response')
         );
     }

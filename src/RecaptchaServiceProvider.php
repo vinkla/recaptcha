@@ -62,7 +62,7 @@ class RecaptchaServiceProvider extends ServiceProvider
             $recaptcha = $this->app['recaptcha'];
 
             try {
-                return $recaptcha->validate($response);
+                return $recaptcha->verify($response);
             } catch (InvalidRecaptchaException $e) {
                 return false;
             }

@@ -15,7 +15,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use Illuminate\Support\Collection;
 use Illuminate\Support\HtmlString;
-use Vinkla\Recaptcha\Exceptions\InvalidRecaptchaException;
+use Vinkla\Recaptcha\Exceptions\InvalidResponseException;
 
 /**
  * This is the recaptcha class.
@@ -62,15 +62,15 @@ class Recaptcha
     }
 
     /**
-     * Validate the response string.
+     * Verify the response string.
      *
      * @param string $response
      *
-     * @throws \Vinkla\Recaptcha\Exceptions\InvalidRecaptchaException
+     * @throws \Vinkla\Recaptcha\Exceptions\InvalidResponseException
      *
      * @return bool
      */
-    public function validate($response)
+    public function verify($response)
     {
         $data = [
             'secret' => $this->secret,
@@ -87,10 +87,10 @@ class Recaptcha
             if (isset($data['error-codes'])) {
                 $error = reset($data['error-codes']);
 
-                throw new InvalidRecaptchaException("Invalid recaptcha response error [$error].");
+                throw new InvalidResponseException("Invalid recaptcha response error [$error].");
             }
 
-            throw new InvalidRecaptchaException('Invalid recaptcha response.');
+            throw new InvalidResponseException('Invalid recaptcha response.');
         }
 
         return (bool) $data['success'];
