@@ -106,6 +106,30 @@ use Vinkla\Recaptcha\Facades\Recaptcha;
 Recaptcha::validate('g-recaptcha-response');
 ```
 
+If you prefer to use dependency injection over facades like me, then you can inject the manager:
+
+```php
+use Illuminate\Http\Request;
+use Vinkla\Recaptcha\Recaptcha;
+
+class Foo
+{
+    protected $recaptcha;
+
+    public function __construct(Recaptcha $recaptcha)
+    {
+        $this->recaptcha = $recaptcha;
+    }
+
+    public function bar(Request $request)
+    {
+        $this->recaptcha->validate(
+            $request->get('g-recaptcha-response')
+        );
+    }
+}
+```
+
 There is a helper method available to add the reCAPTCHA field to your form without having to specify the site key manually.
 
 ```php
