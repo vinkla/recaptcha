@@ -68,7 +68,7 @@ class RecaptchaServiceProvider extends ServiceProvider
             }
         });
 
-        $this->app->validator->replacer(function () {
+        $this->app->validator->replacer('recaptcha', function () {
             return 'Invalid recaptcha response';
         });
     }
