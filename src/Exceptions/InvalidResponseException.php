@@ -11,12 +11,14 @@
 
 namespace Vinkla\Recaptcha\Exceptions;
 
+use Exception;
+
 /**
- * This is the recaptcha exception interface.
+ * This is the invalid response exception class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-interface RecaptchaExceptionInterface
+class InvalidResponseException extends Exception implements RecaptchaExceptionInterface
 {
     //
 }
