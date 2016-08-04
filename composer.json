@@ -32,6 +32,9 @@
         }
     },
     "autoload-dev": {
+        "files": [
+            "./src/helpers.php"
+        ],
         "psr-4": {
             "Vinkla\\Tests\\Recaptcha\\": "tests/"
         }

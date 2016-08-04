@@ -39,6 +39,11 @@ class RecaptchaTest extends AbstractTestCase
         $this->assertInstanceOf(HtmlString::class, $script);
     }
 
+    public function testHelpers()
+    {
+        $this->assertInstanceOf(Recaptcha::class, recaptcha());
+    }
+
     public function getRecaptcha()
     {
         return new Recaptcha('your-site-key', 'your-secret-key');
