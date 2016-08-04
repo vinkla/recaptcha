@@ -87,11 +87,11 @@ $recaptcha = new Recaptcha('site-key', 'secret-key');
 To validate a response from the form you can use the `validate()` method.
 
 ```php
-use Vinkla\Recaptcha\Exceptions\UnverifiedRecaptchaException;
+use Vinkla\Recaptcha\Exceptions\InvalidRecaptchaException;
 
 try {
     $recaptcha->validate('g-recaptcha-response');
-} catch (UnverifiedRecaptchaException $e) {
+} catch (InvalidRecaptchaException $e) {
     // If the validation fails.
 }
 ```
