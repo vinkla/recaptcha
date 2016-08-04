@@ -15,7 +15,7 @@ use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Lumen\Application as LumenApplication;
-use Vinkla\Recaptcha\Exceptions\InvalidRecaptchaException;
+use Vinkla\Recaptcha\Exceptions\InvalidResponseException;
 
 /**
  * This is the recaptcha service provider class.
@@ -63,7 +63,7 @@ class RecaptchaServiceProvider extends ServiceProvider
 
             try {
                 return $recaptcha->verify($response);
-            } catch (InvalidRecaptchaException $e) {
+            } catch (InvalidResponseException $e) {
                 return false;
             }
         });
