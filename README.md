@@ -140,7 +140,7 @@ Validator::make($request->all(), [
 ]);
 ```
 
-If you don't like the default error message, you can define a [custom error message](https://laravel.com/docs/validation#custom-validation-rules) in the `resources/lang/en/validation.php` translations file.
+If you don't like the default error message, you can define a [custom error message](https://laravel.com/docs/validation#custom-validation-rules) in the `validation.php` translations file.
 
 ```
 'recaptcha' => 'You are a robot!',
