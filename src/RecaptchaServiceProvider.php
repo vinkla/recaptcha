@@ -58,7 +58,7 @@ class RecaptchaServiceProvider extends ServiceProvider
      */
     protected function setupValidationRules()
     {
-        $this->app->validator->extend('recaptcha', function ($attribute, $value) {
+        $this->app->validator->extend('recaptcha', function () {
             $recaptcha = $this->app['recaptcha'];
 
             try {
