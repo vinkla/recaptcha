@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.2.1 (released 2016-08-14)
+
+- Fix bug in service provider
+
 ## 0.2.0 (released 2016-08-04)
 
 - Add Laravel validation rule
