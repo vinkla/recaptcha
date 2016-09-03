@@ -15,11 +15,11 @@ $recaptcha = new Recaptcha('site-key', 'secret-key');
 $recaptcha->verify('g-recaptcha-response');
 ```
 
-[![Build Status](https://img.shields.io/travis/vinkla/php-recaptcha/master.svg?style=flat)](https://travis-ci.org/vinkla/php-recaptcha)
+[![Build Status](https://img.shields.io/travis/vinkla/recaptcha/master.svg?style=flat)](https://travis-ci.org/vinkla/recaptcha)
 [![StyleCI](https://styleci.io/repos/64472238/shield?style=flat)](https://styleci.io/repos/64472238)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/vinkla/php-recaptcha.svg?style=flat)](https://scrutinizer-ci.com/g/vinkla/php-recaptcha/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/vinkla/php-recaptcha.svg?style=flat)](https://scrutinizer-ci.com/g/vinkla/php-recaptcha)
-[![Latest Version](https://img.shields.io/github/release/vinkla/php-recaptcha.svg?style=flat)](https://github.com/vinkla/php-recaptcha/releases)
+[![Latest Version](https://img.shields.io/github/release/vinkla/recaptcha.svg?style=flat)](https://github.com/vinkla/recaptcha/releases)
 [![License](https://img.shields.io/packagist/l/vinkla/recaptcha.svg?style=flat)](https://packagist.org/packages/vinkla/recaptcha)
 
 ## Installation
