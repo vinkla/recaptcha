@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of  reCAPTCHA.
+ * This file is part of reCAPTCHA.
  *
  * (c) Vincent Klaiber <hello@vinkla.com>
  *
