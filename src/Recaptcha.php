@@ -13,8 +13,6 @@ namespace Vinkla\Recaptcha;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use Illuminate\Support\Collection;
-use Illuminate\Support\HtmlString;
 use Vinkla\Recaptcha\Exceptions\InvalidResponseException;
 
 /**
@@ -94,45 +92,5 @@ class Recaptcha
         }
 
         return (bool) $data['success'];
-    }
-
-    /**
-     * Generate the recaptcha form field.
-     *
-     * @param string $theme
-     * @param string $type
-     * @param string $size
-     *
-     * @return \Illuminate\Support\HtmlString
-     */
-    public function field($theme = 'light', $type = 'image', $size = 'normal')
-    {
-        $attributes = new Collection([
-            'class' => 'g-recaptcha',
-            'data-sitekey' => $this->site,
-            'data-size' => $size,
-            'data-theme' => $theme,
-            'data-type' => $type,
-        ]);
-
-        $attributes = $attributes->map(function ($value, $attribute) {
-            return sprintf('%s="%s"', $attribute, $value);
-        })->implode(' ');
-
-        return new HtmlString('<div '.$attributes.'></div>');
-    }
-
-    /**
-     * Generate the recaptcha script tag.
-     *
-     * @param string $lang
-     *
-     * @return \Illuminate\Support\HtmlString
-     */
-    public function script($lang = 'en')
-    {
-        $query = http_build_query(['hl' => $lang]);
-
-        return new HtmlString('<script src="https://google.com/recaptcha/api.js?'.$query.'"></script>');
     }
 }

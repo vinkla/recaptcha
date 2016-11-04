@@ -1,8 +1,8 @@
 {
     "name": "vinkla/recaptcha",
-    "description": "A reCAPTCHA package with optional Laravel support",
+    "description": "An easy-to-use and simple reCAPTCHA package",
     "license": "MIT",
-    "keywords": ["recaptcha", "google", "laravel"],
+    "keywords": ["recaptcha", "google", "security"],
     "authors": [
         {
             "name": "Vincent Klaiber",
@@ -11,31 +11,18 @@
         }
     ],
     "require": {
-        "php": "^5.6.4 || ^7.0",
-        "guzzlehttp/guzzle": "^5.3.1 || ^6.2.1"
+        "php": "^7.0",
+        "guzzlehttp/guzzle": "^6.2.1"
     },
     "require-dev": {
-        "graham-campbell/testbench": "^3.2",
-        "illuminate/contracts": "5.3.*",
-        "illuminate/support": "5.3.*",
-        "mockery/mockery": "^0.9.5",
-        "phpunit/phpunit": "^5.4"
-    },
-    "suggest": {
-        "laravel/framework": "Enables Laravel support."
+        "phpunit/phpunit": "^5.6"
     },
     "autoload": {
-        "files": [
-            "./src/helpers.php"
-        ],
         "psr-4": {
             "Vinkla\\Recaptcha\\": "src/"
         }
     },
     "autoload-dev": {
-        "files": [
-            "./src/helpers.php"
-        ],
         "psr-4": {
             "Vinkla\\Tests\\Recaptcha\\": "tests/"
         }
