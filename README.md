@@ -16,7 +16,7 @@ $recaptcha->verify('g-recaptcha-response');
 
 [![Build Status](https://img.shields.io/travis/vinkla/recaptcha/master.svg?style=flat)](https://travis-ci.org/vinkla/recaptcha)
 [![StyleCI](https://styleci.io/repos/64472238/shield?style=flat)](https://styleci.io/repos/64472238)
-[![Codecov](https://img.shields.io/codecov/c/github/vinkla/recaptcha.svg)](https://codecov.io/gh/vinkla/recaptcha)
+[![Coverage Status](https://img.shields.io/codecov/c/github/vinkla/recaptcha.svg?style=flat)](https://codecov.io/github/vinkla/recaptcha)
 [![Latest Version](https://img.shields.io/github/release/vinkla/recaptcha.svg?style=flat)](https://github.com/vinkla/recaptcha/releases)
 [![License](https://img.shields.io/packagist/l/vinkla/recaptcha.svg?style=flat)](https://packagist.org/packages/vinkla/recaptcha)
 
