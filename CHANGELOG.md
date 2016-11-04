@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.0.0 (released 2016-11-04)
+
+- First stable release
+- Drop Laravel setup
+- Drop PHP 5.6 support
+
 ## 0.2.1 (released 2016-08-14)
 
 - Fix bug in service provider
