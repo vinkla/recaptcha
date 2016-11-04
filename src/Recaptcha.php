@@ -75,9 +75,7 @@ class Recaptcha
             'response' => $response,
         ];
 
-        $key = (version_compare(ClientInterface::VERSION, '6') === 1) ? 'form_params' : 'body';
-
-        $response = $this->client->post('https://google.com/recaptcha/api/siteverify', [$key => $data]);
+        $response = $this->client->post('https://google.com/recaptcha/api/siteverify', ['form_params' => $data]);
 
         $data = json_decode((string) $response->getBody(), true);
 
