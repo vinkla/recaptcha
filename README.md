@@ -62,8 +62,6 @@ try {
 }
 ```
 
-## Documentation
-
 If you want to to read more about reCAPTCHA, I'd suggest you [head over to the official documentation](https://developers.google.com/recaptcha/intro).
 
 ## License
