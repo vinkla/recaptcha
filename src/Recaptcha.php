@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace Vinkla\Recaptcha;
 
 use GuzzleHttp\Client;
@@ -68,7 +70,7 @@ class Recaptcha
      *
      * @return bool
      */
-    public function verify($response)
+    public function verify(string $response): bool
     {
         $data = [
             'secret' => $this->secret,
