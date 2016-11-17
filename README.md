@@ -32,11 +32,15 @@ $ composer require vinkla/recaptcha
 
 First you'll need to add the [Google reCAPTCHA script](https://developers.google.com/recaptcha/docs/display#auto_render) to your view templates just before the closing `</head>` tag.
 
+> If you want to use another language you made update the `hl` query parameter value.
+
 ```html
 <script src="https://google.com/recaptcha/api.js?hl=en"></script>
 ```
 
-To display the reCAPTCHA field in your form you may add like this.
+To display the reCAPTCHA field in your form you need to add the snippet below.
+
+> Remember to replace `your-site-key` with your actual reCAPTCHA site key.
 
 ```html
 <div class="g-recaptcha" data-sitekey="your-site-key"></div>
@@ -58,7 +62,7 @@ use Vinkla\Recaptcha\RecaptchaException;
 try {
     $recaptcha->verify('g-recaptcha-response');
 } catch (RecaptchaException $e) {
-    // If the validation fails.
+    // If the verification fails.
 }
 ```
 
