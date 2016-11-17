@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 1.0.0 (released 2016-11-04)
+## 1.0.0 (released 2016-11-17)
 
 - First stable release
 - Drop Laravel setup

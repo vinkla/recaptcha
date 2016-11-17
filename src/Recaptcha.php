@@ -15,7 +15,6 @@ namespace Vinkla\Recaptcha;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use Vinkla\Recaptcha\Exceptions\InvalidResponseException;
 
 /**
  * This is the recaptcha class.
@@ -66,7 +65,7 @@ class Recaptcha
      *
      * @param string $response
      *
-     * @throws \Vinkla\Recaptcha\Exceptions\InvalidResponseException
+     * @throws \Vinkla\Recaptcha\RecaptchaException
      *
      * @return bool
      */
@@ -85,10 +84,10 @@ class Recaptcha
             if (isset($data['error-codes'])) {
                 $error = reset($data['error-codes']);
 
-                throw new InvalidResponseException("Invalid recaptcha response error [$error].");
+                throw new RecaptchaException("Invalid recaptcha response error [$error].");
             }
 
-            throw new InvalidResponseException('Invalid recaptcha response.');
+            throw new RecaptchaException('Invalid recaptcha response.');
         }
 
         return (bool) $data['success'];

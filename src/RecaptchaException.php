@@ -11,16 +11,16 @@
 
 declare(strict_types=1);
 
-namespace Vinkla\Recaptcha\Exceptions;
+namespace Vinkla\Recaptcha;
 
-use Exception;
+use RuntimeException;
 
 /**
- * This is the invalid response exception class.
+ * This is the recaptcha exception class.
  *
  * @author Vincent Klaiber <hello@vinkla.com>
  */
-class InvalidResponseException extends Exception implements RecaptchaExceptionInterface
+class RecaptchaException extends RuntimeException
 {
     //
 }

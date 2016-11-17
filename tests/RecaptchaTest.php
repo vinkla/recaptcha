@@ -36,7 +36,7 @@ class RecaptchaTest extends TestCase
     }
 
     /**
-     * @expectedException \Vinkla\Recaptcha\Exceptions\InvalidResponseException
+     * @expectedException \Vinkla\Recaptcha\RecaptchaException
      */
     public function testInvalidResponse()
     {
@@ -46,7 +46,7 @@ class RecaptchaTest extends TestCase
     }
 
     /**
-     * @expectedException \Vinkla\Recaptcha\Exceptions\InvalidResponseException
+     * @expectedException \Vinkla\Recaptcha\RecaptchaException
      */
     public function testInvalidResponseWithErrorCodes()
     {
