@@ -75,10 +75,10 @@ class Recaptcha
             if (isset($data['error-codes'])) {
                 $error = reset($data['error-codes']);
 
-                throw new RecaptchaException("Invalid recaptcha response error [$error].");
+                throw new RecaptchaException("Invalid reCAPTCHA response error [$error].");
             }
 
-            throw new RecaptchaException('Invalid recaptcha response.');
+            throw new RecaptchaException('Invalid reCAPTCHA response.');
         }
 
         return (bool) $data['success'];
