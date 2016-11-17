@@ -53,7 +53,7 @@ class Recaptcha
      *
      * @return void
      */
-    public function __construct($site, $secret, ClientInterface $client = null)
+    public function __construct(string $site, string $secret, ClientInterface $client = null)
     {
         $this->site = $site;
         $this->secret = $secret;
