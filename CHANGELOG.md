@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2.0.0 (released 2016-11-17)
+
+- Added new exception class
+- Added strict types
+- Removed unused site key
+
 ## 1.0.0 (released 2016-11-17)
 
 - First stable release
