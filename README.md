@@ -2,7 +2,7 @@
 
 ![recaptcha](https://cloud.githubusercontent.com/assets/499192/17246444/6c1d188a-558c-11e6-8017-009392496433.gif)
 
-> An easy-to-use and simple [reCAPTCHA](https://developers.google.com/recaptcha/intro) package.
+> An easy-to-use [reCAPTCHA](https://developers.google.com/recaptcha/intro) package.
 
 ```php
 use Vinkla\Recaptcha\Recaptcha;

@@ -1,6 +1,6 @@
 {
     "name": "vinkla/recaptcha",
-    "description": "An easy-to-use and simple reCAPTCHA package",
+    "description": "An easy-to-use reCAPTCHA package",
     "license": "MIT",
     "keywords": ["recaptcha", "google", "security"],
     "authors": [
