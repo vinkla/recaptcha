@@ -67,6 +67,6 @@ class RecaptchaTest extends TestCase
 
         $client = new Client(['handler' => $handler]);
 
-        return new Recaptcha('my-site-key', 'my-secret-key', $client);
+        return new Recaptcha('my-secret-key', $client);
     }
 }

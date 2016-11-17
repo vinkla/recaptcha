@@ -24,13 +24,6 @@ use GuzzleHttp\ClientInterface;
 class Recaptcha
 {
     /**
-     * The site key.
-     *
-     * @var string
-     */
-    protected $site;
-
-    /**
      * The secret key.
      *
      * @var string
@@ -47,15 +40,13 @@ class Recaptcha
     /**
      * Create a new recaptcha instance.
      *
-     * @param string $site
      * @param string $secret
      * @param \GuzzleHttp\ClientInterface|null $client
      *
      * @return void
      */
-    public function __construct(string $site, string $secret, ClientInterface $client = null)
+    public function __construct(string $secret, ClientInterface $client = null)
     {
-        $this->site = $site;
         $this->secret = $secret;
         $this->client = $client ?: new Client();
     }

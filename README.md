@@ -8,7 +8,7 @@
 use Vinkla\Recaptcha\Recaptcha;
 
 // Create a new recaptcha instance.
-$recaptcha = new Recaptcha('site-key', 'secret-key');
+$recaptcha = new Recaptcha('your-secret-key');
 
 // Verify the recaptcha response.
 $recaptcha->verify('g-recaptcha-response');
@@ -47,17 +47,17 @@ Then create a new `Vinkla\Recaptcha\Recaptcha` instance.
 ```php
 use Vinkla\Recaptcha\Recaptcha;
 
-$recaptcha = new Recaptcha('site-key', 'secret-key');
+$recaptcha = new Recaptcha('your-secret-key');
 ```
 
 To validate a response from the form you can use the `verify()` method.
 
 ```php
-use Vinkla\Recaptcha\Exceptions\InvalidResponseException;
+use Vinkla\Recaptcha\RecaptchaException;
 
 try {
     $recaptcha->verify('g-recaptcha-response');
-} catch (InvalidResponseException $e) {
+} catch (RecaptchaException $e) {
     // If the validation fails.
 }
 ```
