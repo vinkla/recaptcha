@@ -13,11 +13,7 @@ declare(strict_types=1);
 
 namespace Vinkla\Tests\Recaptcha;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Psr7;
-use GuzzleHttp\Psr7\Response;
+use Http\Mock\Client;
 use PHPUnit\Framework\TestCase;
 use Vinkla\Recaptcha\Recaptcha;
 
@@ -57,15 +53,9 @@ class RecaptchaTest extends TestCase
 
     protected function getRecaptcha($data)
     {
-        $stream = Psr7\stream_for(json_encode($data));
+        $client = new Client();
 
-        $mock = new MockHandler([
-            new Response(200, [], $stream),
-        ]);
-
-        $handler = HandlerStack::create($mock);
-
-        $client = new Client(['handler' => $handler]);
+        $client->addResponse();
 
         return new Recaptcha('my-secret-key', $client);
     }

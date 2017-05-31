@@ -13,8 +13,10 @@ declare(strict_types=1);
 
 namespace Vinkla\Recaptcha;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
+use Http\Client\HttpClient;
+use Http\Discovery\HttpClientDiscovery;
+use Http\Discovery\MessageFactoryDiscovery;
+use Http\Message\RequestFactory;
 
 /**
  * This is the recaptcha class.
@@ -31,24 +33,33 @@ class Recaptcha
     protected $secret;
 
     /**
-     * The guzzle http client.
+     * The http client.
      *
-     * @var \GuzzleHttp\ClientInterface
+     * @var \Http\Client\HttpClient
      */
-    protected $client;
+    protected $httpClient;
+
+    /**
+     * The http request factory.
+     *
+     * @var \Http\Message\RequestFactory
+     */
+    protected $requestFactory;
 
     /**
      * Create a new recaptcha instance.
      *
      * @param string $secret
-     * @param \GuzzleHttp\ClientInterface|null $client
+     * @param \Http\Client\HttpClient|null $httpClient
+     * @param \Http\Message\RequestFactory|null $requestFactory
      *
      * @return void
      */
-    public function __construct(string $secret, ClientInterface $client = null)
+    public function __construct(string $secret, HttpClient $httpClient = null, RequestFactory $requestFactory = null)
     {
         $this->secret = $secret;
-        $this->client = $client ?: new Client();
+        $this->httpClient = $httpClient ?: HttpClientDiscovery::find();
+        $this->requestFactory = $requestFactory ?: MessageFactoryDiscovery::find();
     }
 
     /**
@@ -62,12 +73,16 @@ class Recaptcha
      */
     public function verify(string $response): bool
     {
-        $data = [
+        $uri = 'https://google.com/recaptcha/api/siteverify';
+
+        $body = json_encode([
             'secret' => $this->secret,
             'response' => $response,
-        ];
+        ]);
 
-        $response = $this->client->post('https://google.com/recaptcha/api/siteverify', ['form_params' => $data]);
+        $request = $this->requestFactory->createRequest('POST', $uri, [], $body);
+
+        $response = $this->httpClient->sendRequest($request);
 
         $data = json_decode((string) $response->getBody(), true);
 
@@ -75,7 +90,7 @@ class Recaptcha
             if (isset($data['error-codes'])) {
                 $error = reset($data['error-codes']);
 
-                throw new RecaptchaException("Invalid reCAPTCHA response error [$error].");
+                throw new RecaptchaException(sprintf('Invalid reCAPTCHA response error [%s].', $error));
             }
 
             throw new RecaptchaException('Invalid reCAPTCHA response.');
