@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace Vinkla\Tests\Recaptcha;
 
+use GuzzleHttp\Psr7\Response;
 use Http\Mock\Client;
 use PHPUnit\Framework\TestCase;
 use Vinkla\Recaptcha\Recaptcha;
-use GuzzleHttp\Psr7\Response;
 
 /**
  * This is the recaptcha test case class.
