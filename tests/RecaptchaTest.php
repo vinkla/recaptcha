@@ -16,6 +16,7 @@ namespace Vinkla\Tests\Recaptcha;
 use Http\Mock\Client;
 use PHPUnit\Framework\TestCase;
 use Vinkla\Recaptcha\Recaptcha;
+use GuzzleHttp\Psr7\Response;
 
 /**
  * This is the recaptcha test case class.
@@ -38,7 +39,7 @@ class RecaptchaTest extends TestCase
     {
         $recaptcha = $this->getRecaptcha(['success' => false]);
 
-        $this->assertTrue($recaptcha->verify('my-recaptcha-response'));
+        $recaptcha->verify('my-recaptcha-response');
     }
 
     /**
@@ -48,14 +49,16 @@ class RecaptchaTest extends TestCase
     {
         $recaptcha = $this->getRecaptcha(['success' => false, 'error-codes' => []]);
 
-        $this->assertTrue($recaptcha->verify('my-recaptcha-response'));
+        $recaptcha->verify('my-recaptcha-response');
     }
 
     protected function getRecaptcha($data)
     {
         $client = new Client();
 
-        $client->addResponse();
+        $response = new Response(200, [], json_encode($data));
+
+        $client->addResponse($response);
 
         return new Recaptcha('my-secret-key', $client);
     }
