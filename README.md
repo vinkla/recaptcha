@@ -48,12 +48,6 @@ To display the reCAPTCHA field in your form you need to add the snippet below.
 <div class="g-recaptcha" data-sitekey="your-site-key"></div>
 ```
 
-If you want to use invisible reCAPTCHA, you also need to add the `data-size` attribute to the element.
-
-```html
-<div class="g-recaptcha" data-sitekey="your-site-key" data-size="invisible"></div>
-```
-
 Then create a new `Vinkla\Recaptcha\Recaptcha` instance.
 
 ```php

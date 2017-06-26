@@ -2,7 +2,7 @@
     "name": "vinkla/recaptcha",
     "description": "An easy-to-use reCAPTCHA package",
     "license": "MIT",
-    "keywords": ["recaptcha", "google", "security", "invisible"],
+    "keywords": ["recaptcha", "google", "security"],
     "authors": [
         {
             "name": "Vincent Klaiber",
