@@ -73,7 +73,7 @@ class Recaptcha
      */
     public function verify(string $response): bool
     {
-        $uri = 'https://google.com/recaptcha/api/siteverify';
+        $uri = 'https://www.google.com/recaptcha/api/siteverify';
 
         $body = json_encode([
             'secret' => $this->secret,
