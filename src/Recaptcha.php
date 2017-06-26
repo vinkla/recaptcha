@@ -75,12 +75,16 @@ class Recaptcha
     {
         $uri = 'https://www.google.com/recaptcha/api/siteverify';
 
-        $body = json_encode([
+        $headers = [
+            'Content-Type' => 'application/x-www-form-urlencoded'
+        ];
+
+        $body = http_build_query([
             'secret' => $this->secret,
             'response' => $response,
         ]);
 
-        $request = $this->requestFactory->createRequest('POST', $uri, [], $body);
+        $request = $this->requestFactory->createRequest('POST', $uri, $headers, $body);
 
         $response = $this->httpClient->sendRequest($request);
 
@@ -113,11 +117,11 @@ class Recaptcha
     protected function getErrorMessage(string $code): string
     {
         $messages = [
-            'missing-input-secret' => 'The secret parameter is missing.',
+            'bad-request' => 'The request is invalid or malformed.',
+            'invalid-input-response' => 'The response parameter is invalid or malformed.',
             'invalid-input-secret' => 'The secret parameter is invalid or malformed.',
             'missing-input-response' => 'The response parameter is missing.',
-            'invalid-input-response' => 'The response parameter is invalid or malformed.',
-            'bad-request' => 'The request is invalid or malformed.',
+            'missing-input-secret' => 'The secret parameter is missing.',
         ];
 
         return $messages[$code] ?? 'Invalid reCAPTCHA response.';
