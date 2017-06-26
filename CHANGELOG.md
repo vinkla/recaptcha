@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 3.0.0 (upcoming)
+## 3.0.0 (released 2017-06-26)
 
 - Add httplug support
 
