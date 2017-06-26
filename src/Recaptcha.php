@@ -76,7 +76,7 @@ class Recaptcha
         $uri = 'https://www.google.com/recaptcha/api/siteverify';
 
         $headers = [
-            'Content-Type' => 'application/x-www-form-urlencoded'
+            'Content-Type' => 'application/x-www-form-urlencoded',
         ];
 
         $body = http_build_query([
