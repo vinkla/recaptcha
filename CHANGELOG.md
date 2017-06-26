@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.0 (upcoming)
+
+- Add httplug support
+
 ## 2.0.0 (released 2016-11-17)
 
 - Added new exception class
