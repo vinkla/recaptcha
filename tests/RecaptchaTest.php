@@ -44,10 +44,13 @@ class RecaptchaTest extends TestCase
 
     /**
      * @expectedException \Vinkla\Recaptcha\RecaptchaException
+     * @expectedExceptionMessage The secret parameter is missing.
      */
     public function testInvalidResponseWithErrorCodes()
     {
-        $recaptcha = $this->getRecaptcha(['success' => false, 'error-codes' => []]);
+        $recaptcha = $this->getRecaptcha(['success' => false, 'error-codes' => [
+            'missing-input-secret',
+        ]]);
 
         $recaptcha->verify('my-recaptcha-response');
     }

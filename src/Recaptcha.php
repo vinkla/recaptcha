@@ -1,13 +1,13 @@
 <?php
 
 /*
- * This file is part of reCAPTCHA.
- *
- * (c) Vincent Klaiber <hello@vinkla.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+* This file is part of reCAPTCHA.
+*
+* (c) Vincent Klaiber <hello@vinkla.com>
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
 
 declare(strict_types=1);
 
@@ -88,14 +88,38 @@ class Recaptcha
 
         if (!isset($data['success']) || !$data['success']) {
             if (isset($data['error-codes'])) {
-                $error = reset($data['error-codes']);
+                $message = $this->getErrorMessage(
+                    $data['error-codes'][0]
+                );
 
-                throw new RecaptchaException(sprintf('Invalid reCAPTCHA response error [%s].', $error));
+                throw new RecaptchaException($message);
             }
 
             throw new RecaptchaException('Invalid reCAPTCHA response.');
         }
 
         return (bool) $data['success'];
+    }
+
+    /**
+     * Get the error message by code.
+     *
+     * @param string $code
+     *
+     * @see https://developers.google.com/recaptcha/docs/verify#error-code-reference
+     *
+     * @return string
+     */
+    protected function getErrorMessage(string $code): string
+    {
+        $messages = [
+            'missing-input-secret' => 'The secret parameter is missing.',
+            'invalid-input-secret' => 'The secret parameter is invalid or malformed.',
+            'missing-input-response' => 'The response parameter is missing.',
+            'invalid-input-response' => 'The response parameter is invalid or malformed.',
+            'bad-request' => 'The request is invalid or malformed.',
+        ];
+
+        return $messages[$code] ?? 'Invalid reCAPTCHA response.';
     }
 }
