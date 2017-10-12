@@ -8,10 +8,10 @@
 use Vinkla\Recaptcha\Recaptcha;
 
 // Create a new recaptcha instance.
-$recaptcha = new Recaptcha('your-secret-key');
+$recaptcha = new Recaptcha(YOUR_SECRET_KEY);
 
 // Verify the recaptcha response.
-$recaptcha->verify('g-recaptcha-response');
+$recaptcha->verify($_POST['g-recaptcha-response']);
 ```
 
 [![Build Status](https://img.shields.io/travis/vinkla/recaptcha/master.svg?style=flat)](https://travis-ci.org/vinkla/recaptcha)
@@ -53,7 +53,7 @@ Then create a new `Vinkla\Recaptcha\Recaptcha` instance.
 ```php
 use Vinkla\Recaptcha\Recaptcha;
 
-$recaptcha = new Recaptcha('your-secret-key');
+$recaptcha = new Recaptcha(YOUR_SECRET_KEY);
 ```
 
 To validate a response from the form you can use the `verify()` method.
@@ -62,7 +62,7 @@ To validate a response from the form you can use the `verify()` method.
 use Vinkla\Recaptcha\RecaptchaException;
 
 try {
-    $recaptcha->verify('g-recaptcha-response');
+    $recaptcha->verify($_POST['g-recaptcha-response']);
 } catch (RecaptchaException $e) {
     // If the verification fails.
 }
