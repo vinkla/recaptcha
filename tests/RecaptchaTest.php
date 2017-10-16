@@ -17,6 +17,7 @@ use GuzzleHttp\Psr7\Response;
 use Http\Mock\Client;
 use PHPUnit\Framework\TestCase;
 use Vinkla\Recaptcha\Recaptcha;
+use Vinkla\Recaptcha\RecaptchaException;
 
 /**
  * This is the recaptcha test case class.
@@ -32,22 +33,20 @@ class RecaptchaTest extends TestCase
         $this->assertTrue($recaptcha->verify('my-recaptcha-response'));
     }
 
-    /**
-     * @expectedException \Vinkla\Recaptcha\RecaptchaException
-     */
     public function testInvalidResponse()
     {
+        $this->expectException(RecaptchaException::class);
+
         $recaptcha = $this->getRecaptcha(['success' => false]);
 
         $recaptcha->verify('my-recaptcha-response');
     }
 
-    /**
-     * @expectedException \Vinkla\Recaptcha\RecaptchaException
-     * @expectedExceptionMessage The secret parameter is missing.
-     */
     public function testInvalidResponseWithErrorCodes()
     {
+        $this->expectException(RecaptchaException::class);
+        $this->expectExceptionMessage('The secret parameter is missing.');
+
         $recaptcha = $this->getRecaptcha(['success' => false, 'error-codes' => [
             'missing-input-secret',
         ]]);
