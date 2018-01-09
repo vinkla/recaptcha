@@ -68,6 +68,12 @@ try {
 }
 ```
 
+Optionally, you can send the users IP address along with the request.
+
+```php
+$recaptcha->verify($_POST['g-recaptcha-response'], $ip);
+```
+
 If you want to to read more about reCAPTCHA, I'd suggest you [head over to the official documentation](https://developers.google.com/recaptcha/intro).
 
 ## License
