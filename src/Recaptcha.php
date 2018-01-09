@@ -66,12 +66,13 @@ class Recaptcha
      * Verify the response string.
      *
      * @param string $response
+     * @param string $ip
      *
      * @throws \Vinkla\Recaptcha\RecaptchaException
      *
      * @return bool
      */
-    public function verify(string $response): bool
+    public function verify(string $response, string $ip = null): bool
     {
         $uri = 'https://www.google.com/recaptcha/api/siteverify';
 
@@ -79,10 +80,11 @@ class Recaptcha
             'Content-Type' => 'application/x-www-form-urlencoded',
         ];
 
-        $body = http_build_query([
+        $body = http_build_query(array_filter([
             'secret' => $this->secret,
             'response' => $response,
-        ]);
+            'remoteip' => $ip,
+        ]));
 
         $request = $this->requestFactory->createRequest('POST', $uri, $headers, $body);
 

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.1.0 (upcoming)
+
+- Added optional ip parameter
+- Removed php 7.0 support
+
 ## 3.0.0 (released 2017-06-26)
 
 - Add httplug support
