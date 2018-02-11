@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 3.1.0 (upcoming)
+## 3.1.0 (released 2018-02-11)
 
 - Added optional ip parameter
 - Removed php 7.0 support

@@ -68,7 +68,7 @@ try {
 }
 ```
 
-Optionally, you can send the users IP address along with the request.
+Optionally, you can send the user's IP address along with the request.
 
 ```php
 $recaptcha->verify($_POST['g-recaptcha-response'], $ip);
