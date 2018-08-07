@@ -14,12 +14,11 @@ $recaptcha = new Recaptcha('your-secret-key');
 $recaptcha->verify($_POST['g-recaptcha-response']);
 ```
 
-[![Build Status](https://img.shields.io/travis/vinkla/recaptcha/master.svg?style=flat)](https://travis-ci.org/vinkla/recaptcha)
-[![StyleCI](https://styleci.io/repos/64472238/shield?style=flat)](https://styleci.io/repos/64472238)
-[![Coverage Status](https://img.shields.io/codecov/c/github/vinkla/recaptcha.svg?style=flat)](https://codecov.io/github/vinkla/recaptcha)
-[![Total Downloads](https://img.shields.io/packagist/dt/vinkla/recaptcha.svg?style=flat)](https://packagist.org/packages/vinkla/recaptcha)
-[![Latest Version](https://img.shields.io/github/release/vinkla/recaptcha.svg?style=flat)](https://github.com/vinkla/recaptcha/releases)
-[![License](https://img.shields.io/packagist/l/vinkla/recaptcha.svg?style=flat)](https://packagist.org/packages/vinkla/recaptcha)
+[![Build Status](https://badgen.net/travis/vinkla/recaptcha/master)](https://travis-ci.org/vinkla/recaptcha)
+[![Coverage Status](https://badgen.net/codecov/c/github/vinkla/recaptcha)](https://codecov.io/github/vinkla/recaptcha)
+[![Total Downloads](https://badgen.net/packagist/dt/vinkla/recaptcha)](https://packagist.org/packages/vinkla/recaptcha)
+[![Latest Version](https://badgen.net/github/release/vinkla/recaptcha)](https://github.com/vinkla/recaptcha/releases)
+[![License](https://badgen.net/packagist/license/vinkla/recaptcha)](https://packagist.org/packages/vinkla/recaptcha)
 
 ## Installation
 
