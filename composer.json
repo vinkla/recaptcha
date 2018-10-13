@@ -1,8 +1,12 @@
 {
     "name": "vinkla/recaptcha",
     "description": "An easy-to-use reCAPTCHA package",
+    "keywords": [
+        "recaptcha",
+        "google",
+        "security"
+    ],
     "license": "MIT",
-    "keywords": ["recaptcha", "google", "security"],
     "authors": [
         {
             "name": "Vincent Klaiber",
@@ -23,6 +27,14 @@
         "php-http/mock-client": "^1.1",
         "phpunit/phpunit": "^7.0"
     },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.1-dev"
+        }
+    },
     "autoload": {
         "psr-4": {
             "Vinkla\\Recaptcha\\": "src/"
@@ -31,14 +43,6 @@
     "autoload-dev": {
         "psr-4": {
             "Vinkla\\Tests\\Recaptcha\\": "tests/"
-        }
-    },
-    "config": {
-        "preferred-install": "dist"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "3.1-dev"
         }
     },
     "minimum-stability": "dev",
