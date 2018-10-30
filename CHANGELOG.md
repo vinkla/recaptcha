@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 4.0.0 (released 2018-10-30)
+
+- Added support for reCAPTCHA v3
+- Updated verify return object
+- Removed php 7.1 support
+
 ## 3.1.0 (released 2018-02-11)
 
 - Added optional ip parameter

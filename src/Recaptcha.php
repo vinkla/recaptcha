@@ -70,9 +70,9 @@ class Recaptcha
      *
      * @throws \Vinkla\Recaptcha\RecaptchaException
      *
-     * @return bool
+     * @return object
      */
-    public function verify(string $response, string $ip = null): bool
+    public function verify(string $response, string $ip = null): object
     {
         $uri = 'https://www.google.com/recaptcha/api/siteverify';
 
@@ -90,13 +90,11 @@ class Recaptcha
 
         $response = $this->httpClient->sendRequest($request);
 
-        $data = json_decode((string) $response->getBody(), true);
+        $data = json_decode((string) $response->getBody());
 
-        if (!isset($data['success']) || !$data['success']) {
-            if (isset($data['error-codes'])) {
-                $message = $this->getErrorMessage(
-                    $data['error-codes'][0]
-                );
+        if (!isset($data->success) || !$data->success) {
+            if (property_exists($data, 'error-codes')) {
+                $message = $this->getErrorMessage($data->{'error-codes'}[0]);
 
                 throw new RecaptchaException($message);
             }
@@ -104,7 +102,7 @@ class Recaptcha
             throw new RecaptchaException('Invalid reCAPTCHA response.');
         }
 
-        return (bool) $data['success'];
+        return $data;
     }
 
     /**

@@ -30,7 +30,9 @@ class RecaptchaTest extends TestCase
     {
         $recaptcha = $this->getRecaptcha(['success' => true]);
 
-        $this->assertTrue($recaptcha->verify('my-recaptcha-response'));
+        $response = $recaptcha->verify('my-recaptcha-response');
+
+        $this->assertTrue($response->success);
     }
 
     public function testInvalidResponse()
@@ -47,9 +49,12 @@ class RecaptchaTest extends TestCase
         $this->expectException(RecaptchaException::class);
         $this->expectExceptionMessage('The secret parameter is missing.');
 
-        $recaptcha = $this->getRecaptcha(['success' => false, 'error-codes' => [
-            'missing-input-secret',
-        ]]);
+        $recaptcha = $this->getRecaptcha([
+            'success' => false,
+            'error-codes' => [
+                'missing-input-secret',
+            ],
+        ]);
 
         $recaptcha->verify('my-recaptcha-response');
     }
