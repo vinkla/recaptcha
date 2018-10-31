@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 4.1.0 (released 2018-10-31)
+
+- Added php-http/httplug 2.0 support
+
 ## 4.0.0 (released 2018-10-30)
 
 - Added support for reCAPTCHA v3
