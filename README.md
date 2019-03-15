@@ -78,4 +78,4 @@ If you want to to read more about reCAPTCHA, I'd suggest you [head over to the o
 
 ## License
 
-[MIT](LICENSE) © [Vincent Klaiber](https://vinkla.com)
+[MIT](LICENSE) © [Vincent Klaiber](https://doubledip.se)
